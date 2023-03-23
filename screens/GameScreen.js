@@ -16,18 +16,19 @@ import Colors from "../constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 import GuessLogItem from "../components/game/GuessLogItem";
 
-function GameScreen({ userNumber, onGameOver }) {
-  function generateRandomBetween(min, max, exclude) {
-    const rndNum = Math.floor(Math.random() * (max - min)) + min;
+function generateRandomBetween(min, max, exclude) {
+  const rndNum = Math.floor(Math.random() * (max - min)) + min;
 
-    if (rndNum === exclude) {
-      return generateRandomBetween(min, max, exclude);
-    } else {
-      return rndNum;
-    }
+  if (rndNum === exclude) {
+    return generateRandomBetween(min, max, exclude);
+  } else {
+    return rndNum;
   }
-  let minBoundary = 1;
-  let maxBoundary = 100;
+}
+let minBoundary = 1;
+let maxBoundary = 100;
+
+function GameScreen({ userNumber, onGameOver }) {
   const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
   const [guessRound, setGuessRound] = useState([initialGuess]);
@@ -45,8 +46,10 @@ function GameScreen({ userNumber, onGameOver }) {
     }
     if (direction === "lower") {
       maxBoundary = currentGuess;
+      console.log(minBoundary, maxBoundary);
     } else {
       minBoundary = currentGuess + 1;
+      console.log(minBoundary, maxBoundary);
     }
     const newRndNum = generateRandomBetween(
       minBoundary,
