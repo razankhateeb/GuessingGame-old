@@ -14,11 +14,6 @@ Use the Expo client to open the game on your device or emulator.
 # Playing the Game
 Once the game is running, enter a number for the phone to guess. The phone will make a guess, and you will need to tell it whether its guess is higher or lower than the number you entered. The game will continue until the phone correctly guesses your number.
 
-# Features
-The app allows users to:
-- Add new goals by pressing a button
-- Delete existing goals by pressing on them
-
 # Technologies Used
 The app is built using the following technologies:
 - React Native
